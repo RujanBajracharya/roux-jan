@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-dark-primary: #1b1a1e;
+  --color-dark-obsidian: #050506;
+  --color-light-primary: #f0f0df;
+  --color-outline-primary: #63635d;
+  --color-inner-card: #2b2f37;
+  --color-card: #1f2126;
+  --font-josefin-sans: "Josefin Sans", sans-serif;
+}

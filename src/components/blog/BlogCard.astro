@@ -1,0 +1,24 @@
+---
+import { Atom } from "lucide-react";
+
+const { title, description, tags, slug } = Astro.props;
+---
+
+<div class="relative group p-[1px] rounded-md bg-gradient-to-tr from-[#25262A] via-[#1F2126] to-[#313236] text-white transition-all duration-150 ease-out w-full min-w-[300px]">
+  <!-- Gradient Outline (Appears on Hover) -->
+  <div class="absolute inset-0 rounded-md p-[2px] bg-gradient-to-r from-[#636FA4] to-[#E8CBC0] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+
+  <!-- Inner Card Content -->
+  <a href={`/blog/${slug}`} class="relative z-10 bg-card p-[20px] rounded-md flex flex-col gap-[12px] h-full">
+    <span class="p-[10px] rounded-sm bg-inner-card flex items-center justify-center w-fit">
+      <Atom className="w-[24px] h-[24px] text-light-primary" />
+    </span>
+    <h6 class="text-md font-medium">{title}</h6>
+    <p class="text-sm h-full overflow-hidden text-ellipsis line-clamp-1">{description}</p>
+    <ul class="text-sm flex flex-wrap gap-[12px] mt-[8px]">
+      {tags.map((tag: string) => (
+        <li class="bg-inner-card rounded-sm p-2">{tag}</li>
+      ))}
+    </ul>
+  </a>
+</div>

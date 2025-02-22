@@ -1,0 +1,51 @@
+---
+import { getEntry, render } from "astro:content";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Prose from '../../components/Prose.astro';
+
+// Enable prerendering
+export const prerender = true;
+
+// Function to fetch all the slugs for static generation
+export async function getStaticPaths() {
+  return (await getCollection("blog")).map(({ slug }: {slug: string}) => ({
+    params: { slug },  // Use slug instead of id
+  }));
+}
+
+const { slug } = Astro.params;  // Get slug from URL parameters
+
+if (!slug) {
+  throw new Error("slug is missing");
+}
+
+// Fetch the post entry based on slug
+const entry = await getEntry("blog", slug);  // Use slug to get the entry
+
+if (!entry) {
+  return Astro.redirect("/404");  // Redirect to 404 page if entry is not found
+}
+
+// Render the entry content
+const { Content, remarkPluginFrontmatter } = await render(entry);
+---
+
+<!-- Page Layout -->
+<Layout>
+  <article class="w-fit h-fit mx-auto pt-[140px] px-[120px] pb-[100px]">
+    <header class="mb-6">
+      <h1 class="text-4xl font-bold">{remarkPluginFrontmatter.title}</h1>
+      <p class="text-sm text-gray-500 mt-2">Published on {remarkPluginFrontmatter.pubDate}</p>
+      <div class="text-sm flex flex-wrap gap-[12px] mt-[8px]">
+        {remarkPluginFrontmatter.tags.map((tag: string) => (
+          <span class="bg-inner-card rounded-sm p-2">{tag}</span>
+        ))}
+      </div>
+    </header>
+  
+    <Prose>
+      <Content />
+    </Prose>
+  </article>
+</Layout>
