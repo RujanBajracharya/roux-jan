@@ -11,13 +11,13 @@ export function NavBar() {
       </span>
       <div className="px-[32px] py-[16px] flex items-center gap-[24px] outline-2 outline-dashed outline-outline-primary rounded-2xl bg-dark-primary">
         <UnderlineHover>
-          <a href="/" className="text-light-primary font-semibold">home</a>
+          <a href="/roux-jan/" className="text-light-primary font-semibold">home</a>
         </UnderlineHover>
         <UnderlineHover>
-          <a href="/blogs" className="text-light-primary font-semibold">blogs</a>
+          <a href="/roux-jan/blogs" className="text-light-primary font-semibold">blogs</a>
         </UnderlineHover>
         <UnderlineHover>
-          <a href="/blog/about-me/" className="text-light-primary font-semibold">about me</a>
+          <a href="/roux-jan/blog/about-me/" className="text-light-primary font-semibold">about me</a>
         </UnderlineHover>
         <a className="hover:cursor-pointer" href="https://www.linkedin.com/in/rujan-bajracharya" target="_blank">
           <Linkedin />

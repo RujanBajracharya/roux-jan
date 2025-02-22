@@ -5,7 +5,7 @@ export function Hero() {
         <h1 className="bg-gradient-to-r from-[#636FA4] to-[#E8CBC0] inline-block text-transparent bg-clip-text text-5xl font-bold h-[55px]">hi, i am rujan</h1>
         <p className="font-medium text-gray-400 text-xl">i write random stuff here. this site is not finished yet.</p>
       </div>
-      <a className="px-[24px] py-[12px] bg-gradient-to-r from-[#636FA4] to-[#E8CBC0] inline-block text-dark-primary font-semibold rounded-2xl hover:cursor-pointer" href="/blog/about-me">learn more about me</a>
+      <a className="px-[24px] py-[12px] bg-gradient-to-r from-[#636FA4] to-[#E8CBC0] inline-block text-dark-primary font-semibold rounded-2xl hover:cursor-pointer" href="/roux-jan/blog/about-me">learn more about me</a>
     </main>
   )
 }
