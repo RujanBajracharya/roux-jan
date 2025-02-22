@@ -12,6 +12,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "https://rujanbajracharya.github.io",
+  base: "roux-jan",
   output: "static",
   outDir: "./docs",
   build: {
